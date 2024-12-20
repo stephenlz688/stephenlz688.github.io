@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>extern | LiTao's Home</title><meta name="author" content="LT"><meta name="copyright" content="LT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="简介在 C++ 中，extern关键字主要用于声明变量或函数是在其他文件中定义的。它的作用是告诉编译器，这个变量或者函数的定义在别的地方，先不要为这个变量或函数分配内存空间，等到链接的时候再去寻找它的定义。  如果你有一个大型项目，包含多个源文件（.cpp文件），可能在一个文件中定义了一个全局变量或者函数，而在另一个文件中需要使用它。这时候就可以使用extern关键字来进行声明。  变量声明中的e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="extern">
+<meta property="og:url" content="http://example.com/2023/12/13/C-%E4%B8%ADextern%E5%85%B3%E9%94%AE%E5%AD%97/index.html">
+<meta property="og:site_name" content="LiTao&#39;s Home">
+<meta property="og:description" content="简介在 C++ 中，extern关键字主要用于声明变量或函数是在其他文件中定义的。它的作用是告诉编译器，这个变量或者函数的定义在别的地方，先不要为这个变量或函数分配内存空间，等到链接的时候再去寻找它的定义。  如果你有一个大型项目，包含多个源文件（.cpp文件），可能在一个文件中定义了一个全局变量或者函数，而在另一个文件中需要使用它。这时候就可以使用extern关键字来进行声明。  变量声明中的e">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/profile.png">
+<meta property="article:published_time" content="2023-12-13T07:05:19.000Z">
+<meta property="article:modified_time" content="2023-12-26T16:00:00.000Z">
+<meta property="article:author" content="LT">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/profile.png"><link rel="shortcut icon" href="/img/topImage.png"><link rel="canonical" href="http://example.com/2023/12/13/C-%E4%B8%ADextern%E5%85%B3%E9%94%AE%E5%AD%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'extern',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/background.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/profile.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LiTao's Home</span></a><a class="nav-page-title" href="/"><span class="site-name">extern</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><span> 留言板</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">extern</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-13T07:05:19.000Z" title="发表于 2023-12-13 15:05:19">2023-12-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-26T16:00:00.000Z" title="更新于 2023-12-27 00:00:00">2023-12-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在 C++ 中，<code>extern</code>关键字主要用于声明变量或函数是在其他文件中定义的。它的作用是告诉编译器，这个变量或者函数的定义在别的地方，先不要为这个变量或函数分配内存空间，等到链接的时候再去寻找它的定义。</p>
+<blockquote>
+<p>如果你有一个大型项目，包含多个源文件（<code>.cpp</code>文件），可能在一个文件中定义了一个全局变量或者函数，而在另一个文件中需要使用它。这时候就可以使用<code>extern</code>关键字来进行声明。</p>
+</blockquote>
+<h2 id="变量声明中的extern"><a href="#变量声明中的extern" class="headerlink" title="变量声明中的extern"></a>变量声明中的extern</h2><p>当你在一个文件中使用<code>extern</code>声明一个变量时，编译器知道这个变量是在其他地方定义的。</p>
+<p>假设有两个文件<code>file1.cpp</code>和<code>file2.cpp</code>。在<code>file1.cpp</code>中有如下定义：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// file1.cpp</span></span><br><span class="line"><span class="type">int</span> global_variable = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在<code>file2.cpp</code>中如果要使用这个变量，可以这样声明：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// file2.cpp</span></span><br><span class="line"><span class="keyword">extern</span> <span class="type">int</span> global_variable;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 使用global_variable</span></span><br><span class="line">    <span class="type">int</span> result = global_variable * <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的<code>extern int global_variable;</code>声明告诉编译器，<code>global_variable</code>这个变量是在其他地方定义的，先不要为它分配内存，在链接阶段会找到它真正的定义。</p>
+<h2 id="函数声明中的extern"><a href="#函数声明中的extern" class="headerlink" title="函数声明中的extern"></a>函数声明中的extern</h2><p>对于函数，<code>extern</code>声明也是类似的。在默认情况下，C++ 函数声明是<code>extern</code>的，这意味着函数可以在其他文件中定义。</p>
+<p>有一个函数<code>int add(int a, int b)</code>在<code>function.cpp</code>文件中定义：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function.cpp</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在<code>main.cpp</code>文件中可以这样使用：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line"><span class="comment">// 这里其实可以省略extern，因为函数默认是extern的</span></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span>, <span class="type">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> result = <span class="built_in">add</span>(<span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="extern-“C”的特殊情况"><a href="#extern-“C”的特殊情况" class="headerlink" title="extern “C”的特殊情况"></a>extern “C”的特殊情况</h2><p>当 C++ 代码需要调用 C 函数或者 C 库时，就需要使用<code>extern &quot;C&quot;</code>。这是因为 C++ 的函数名在编译时会进行名字修饰，而 C 函数不会。</p>
+<p>有一个 C 库中的函数<code>int multiply(int a, int b)</code>，在 C++ 代码中调用它需要这样声明：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C++文件中</span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> &#123;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">multiply</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样告诉编译器，<code>multiply</code>这个函数是按照 C 语言的方式进行编译的，不要对函数名进行 C++ 的名字修饰，以保证能够正确地链接到 C 库中的函数。如果不使用<code>extern &quot;C&quot;</code>，链接器可能无法找到正确的函数定义，因为函数名在 C++ 和 C 中的表示方式不同。</p>
+<p><code>extern</code>关键字在 C++ 中对于跨文件的变量和函数使用以及 C&#x2F;C++ 混合编程等场景中起着非常重要的作用，它能够帮助编译器正确地处理程序的链接过程。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">LT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/12/13/C-%E4%B8%ADextern%E5%85%B3%E9%94%AE%E5%AD%97/">http://example.com/2023/12/13/C-%E4%B8%ADextern%E5%85%B3%E9%94%AE%E5%AD%97/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">LiTao's Home</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a></div><div class="post-share"><div class="social-share" data-image="/img/profile.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/08/29/%E5%9C%A8%E7%BA%BF%E8%81%8A%E5%A4%A9%E6%96%87%E4%BB%B6%E5%88%86%E4%BA%AB%E5%B9%B3%E5%8F%B0/" title="在线聊天文件分享平台"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">在线聊天文件分享平台</div></div><div class="info-2"><div class="info-item-1">数据库设计MySQL特点 开源免费：其开源的特性使得开发者可以自由获取源代码，根据自身需求进行修改和定制，降低了使用成本，尤其受中小规模项目和创业公司青睐。 跨平台支持：能在多种主流操作系统上运行，比如 Windows、Linux、macOS 等，方便不同操作系统环境下的用户部署和使用。 性能出色：采用了多种优化机制来提高查询和数据处理的速度，像索引机制能快速定位数据，对于处理大量数据的场景也能有较好的响应性能，例如在电商网站处理海量商品信息和订单数据时表现良好。 易于使用和管理：提供了简单直观的命令行界面（CLI）以及可视化的管理工具（如 phpMyAdmin 等），无论是有经验的数据库管理员还是新手开发者，都能较容易地进行数据库的创建、表结构设计、数据操作等工作。 丰富的数据类型和函数支持：涵盖了整数、小数、字符串、日期时间等多种数据类型，还拥有大量内置函数用于数据处理、计算、字符串操作、日期处理等，满足各种复杂的业务逻辑需求。  user_info表包含四个字段，分别为id、name、pwd、online 字段说明 id  类型为int 定义为主键(primary...</div></div></div></a><a class="pagination-related" href="/2023/12/08/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" title="多线程"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">多线程</div></div><div class="info-2"><div class="info-item-1">简介​	多线程是一种程序的执行方式，它允许一个程序同时执行多个线程。在C++中，线程是操作系统能够进行运算调度的最小单位。一个进程可以包含多个线程，这些线程共享进程的资源，如内存空间、文件描述符等。 ​	在Linux中线程是轻量级的进程，从用户空间来看，线程是独立的执行流，但在内核层面，线程是作为一种特殊的进程来对待的，每个线程都有自己的进程描述符（task_struct），这与普通进程类似。它包含了线程的各种状态信息，如运行状态、优先级等。 ​	在 Windows 操作系统中，采用的是基于内核对象的线程模型。线程是操作系统进行调度的基本单位，每个线程都有自己的线程上下文（包括程序计数器、寄存器等）。线程由内核对象（ETHREAD结构）来表示，这个内核对象包含了线程的各种属性，如线程 ID、优先级等。当创建一个线程时，Windows...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/09/25/%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%B0%8F%E7%BB%83%E4%B9%A01/" title="静态成员小练习1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-25</div><div class="info-item-2">静态成员小练习1</div></div><div class="info-2"><div class="info-item-1">题目 银行账户：设计一个BankAccount类，模拟银行账户的基本操作。 1.使用静态成员变量记录所有账户的总余额，每个账户对象有自己的余额属性。2.每个账户可以存取。3.提供静态成员函数来查询总余额。4.在构造函数和析构函数中更新总余额  分析1.设计一个BankAccount类，模拟银行账户的基本操作。首先，创建一个BankAccount类，用来模拟一些银行账户的存取操作。 1class BankAccount&#123;&#125;;  2.使用静态成员变量记录所有账户的总余额，每个账户对象有自己的余额属性。然后创建一个静态变量表示所有账户的总余额，由于是静态成员变量，所以需要在类内定义，类外初始化。 12static int Balance; // BankAccount类内int BankAccount::balance = 0; // BankAccount类外  每个账户对象都有自己的余额属性，我们再创建一个普通的成员对象 1int My_Balance;  3.每个账户可以存取。创建出存钱和取钱的成员函数 12345678910111213// 存钱void...</div></div></div></a><a class="pagination-related no-desc" href="/2023/12/05/C-%E5%9B%9B%E7%A7%8D%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" title="C++四种强制类型转换"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-05</div><div class="info-item-2">C++四种强制类型转换</div></div></div></a><a class="pagination-related" href="/2023/10/25/C++%E6%A8%A1%E6%9D%BF/" title="C++模板"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-25</div><div class="info-item-2">C++模板</div></div><div class="info-2"><div class="info-item-1">什么是 C++ 模板(template)C++ 模板是一种泛型编程的工具，它允许程序员独立于任何特定类型的方式编写代码。简单来说，模板可以看作是一个代码生成器，它根据用户提供的类型或其他模板参数生成特定类型的代码。  例如，考虑一个简单的函数，它可以交换两个变量的值。如果没有模板，可能需要为不同类型（如 int、double、char 等）分别编写交换函数。但有了模板，就可以编写一个通用的交换函数，适用于多种类型。 模板也是静态多态 12template &lt;typename T&gt; int compare (T t1, T t2);template &lt;typename T&gt; class compare;  模板的优缺点优点 代码复用性高，模板允许编写通用的代码，这些代码可以适用于多种不同的数据类型。 类型安全，C++...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/profile.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">LT</div><div class="author-info-description">简单记录一些学习生活~</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/stephenlz688"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E4%B8%AD%E7%9A%84extern"><span class="toc-number">2.</span> <span class="toc-text">变量声明中的extern</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E4%B8%AD%E7%9A%84extern"><span class="toc-number">3.</span> <span class="toc-text">函数声明中的extern</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#extern-%E2%80%9CC%E2%80%9D%E7%9A%84%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5"><span class="toc-number">4.</span> <span class="toc-text">extern “C”的特殊情况</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/19/GCC/" title="GCC">GCC</a><time datetime="2024-12-19T08:47:05.000Z" title="发表于 2024-12-19 16:47:05">2024-12-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/19/%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98-%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98/" title="机械硬盘/固态硬盘">机械硬盘/固态硬盘</a><time datetime="2024-12-19T05:57:49.000Z" title="发表于 2024-12-19 13:57:49">2024-12-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/19/HTTP-HTTPS%E7%9A%84%E5%8C%BA%E5%88%AB/" title="HTTP/HTTPS的区别">HTTP/HTTPS的区别</a><time datetime="2024-12-19T05:57:28.000Z" title="发表于 2024-12-19 13:57:28">2024-12-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/19/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/" title="线程同步机制">线程同步机制</a><time datetime="2024-12-19T05:57:01.000Z" title="发表于 2024-12-19 13:57:01">2024-12-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/19/%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="浅拷贝与深拷贝">浅拷贝与深拷贝</a><time datetime="2024-12-19T05:52:04.000Z" title="发表于 2024-12-19 13:52:04">2024-12-19</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/topImage.png);"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By LT</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
